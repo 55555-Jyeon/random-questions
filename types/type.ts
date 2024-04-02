@@ -7,3 +7,14 @@ export type Tquestions = {
   project: string[];
   basics: string[];
 };
+
+export type QuestionItem = {
+  question: string;
+  category: keyof Tquestions;
+};
+
+export type TProps = {
+  idx: number;
+  category: string;
+  question: string;
+};
