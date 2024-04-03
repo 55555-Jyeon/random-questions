@@ -7,7 +7,7 @@
             transform: rotateY(180deg); // Y축 기준 180도 회전
             .back {
                 opacity: 1;
-                transition: opacity 0.2s ease 0.1s; // 지연시간을 추가
+                transition: opacity 0.2s ease 0.1s;
             }
         }
         .front {
