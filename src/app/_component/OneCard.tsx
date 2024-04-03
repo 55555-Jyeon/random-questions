@@ -6,7 +6,6 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { Grid } from '@mui/material';
-import { CardActionArea } from '@mui/material';
 import { useState } from 'react';
 
 export default function OneCard({ idx, category, question }: TProps) {
@@ -17,27 +16,29 @@ export default function OneCard({ idx, category, question }: TProps) {
 
     return (
         <Grid item key={idx} className={styles.card}>
-            <CardActionArea>
-                <Card className={styles.flipper} onClick={handleShowCard} sx={{ width: 230, height: 230 }}>
-                    {!isFlipped ? (
-                        <div className={styles.front}>
-                            <h1>{idx + 1}</h1>
-                        </div>
-                    ) : (
-                        ''
-                    )}
-                    <div className={styles.back}>
-                        <CardContent className={styles.innerContainer}>
-                            <Typography variant="body2" color="text.secondary">
-                                {category}
-                            </Typography>
-                            <Typography className={styles.text} gutterBottom variant="h6" component="div">
-                                {question}
-                            </Typography>
-                        </CardContent>
+            <Card
+                className={`${styles.flipper} ${isFlipped ? styles['is-flipped'] : ''}`}
+                onClick={handleShowCard}
+                sx={{ width: 230, height: 230 }}
+            >
+                {!isFlipped ? (
+                    <div className={styles.front}>
+                        <h1>{idx + 1}</h1>
                     </div>
-                </Card>
-            </CardActionArea>
+                ) : (
+                    ''
+                )}
+                <div className={styles.back}>
+                    <CardContent className={styles.innerContainer}>
+                        <Typography variant="body2" color="text.secondary">
+                            {category}
+                        </Typography>
+                        <Typography className={styles.text} gutterBottom variant="h6" component="div">
+                            {question}
+                        </Typography>
+                    </CardContent>
+                </div>
+            </Card>
         </Grid>
     );
 }
